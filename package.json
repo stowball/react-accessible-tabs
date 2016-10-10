@@ -1,0 +1,43 @@
+{
+  "name": "react-accessible-tabs",
+  "version": "0.1.0",
+  "description": "Accessible React tabs component",
+  "main": "lib/components/Tab.js",
+  "jsnext:main": "es/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && npm clean-demo",
+    "start": "nwb serve-react-demo"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5"
+  },
+  "peerDependencies": {
+    "react": "15.x"
+  },
+  "devDependencies": {
+    "nwb": "0.12.x",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "author": "Matt Stow",
+  "homepage": "http://mattstow.com",
+  "license": "MIT",
+  "repository": "https://github.com/stowball/react-accessible-tabs.git",
+  "keywords": [
+    "react",
+    "react-component",
+    "ui",
+    "accessible",
+    "a11y",
+    "tabs",
+    "es6"
+  ]
+}
