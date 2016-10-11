@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-class Panel extends React.Component {
+class Panel extends Component {
     createMarkup (str) {
         return { __html: str };
     }

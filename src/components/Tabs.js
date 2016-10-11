@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import TabList from './TabList';
 import Panels from './Panels';
 
-class Tabs extends React.Component {
+class Tabs extends Component {
     constructor (props) {
         super(props);
 

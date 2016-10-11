@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-class Tab extends React.Component {
+class Tab extends Component {
     componentDidUpdate () {
         const { id, index, selectedIndex } = this.props;
         const isSelected = index === selectedIndex;
@@ -18,7 +18,7 @@ class Tab extends React.Component {
         );
 
         return (
-            <li role="presentation">
+            <li className="tabs__tab-list-item" role="presentation">
                 <a
                     ref={id}
                     aria-controls={id}

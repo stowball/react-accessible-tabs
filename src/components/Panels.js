@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Panel from './Panel';
 import idSafeName from '../helpers/idSafeName';
 
-class Panels extends React.Component {
+class Panels extends Component {
     render () {
         const { data, selectedIndex } = this.props;
 
@@ -18,6 +18,7 @@ class Panels extends React.Component {
                     return (
                         <Panel
                             key={id}
+                            className="tabs__panels"
                             content={panel.content}
                             id={id}
                             index={index}

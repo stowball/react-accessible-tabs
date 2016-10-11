@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Tab from './Tab';
 import idSafeName from '../helpers/idSafeName';
 
-class TabList extends React.Component {
+class TabList extends Component {
     render () {
         const { data, selectedIndex, onClick, onKeyDown } = this.props;
 

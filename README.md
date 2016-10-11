@@ -2,22 +2,68 @@
 
 An accessible React tabs component, ported from [my vanilla JS plugin](http://codepen.io/stowball/pen/xVWwWe).
 
+## Demo
+
 [See it in action](https://stowball.github.io/react-accessible-tabs/).
 
-## Prerequisites
+## Usage
 
-[Node.js](http://nodejs.org/) >= v4 must be installed.
+### Installation
 
-## Installation
+```sh
+npm install react-accessible-tabs --save
+```
 
-- Running `npm install` in the components's root directory will install everything you need for development.
+### In React
 
-## Demo Development Server
+```js
+import Tabs from 'react-accessible-tabs';
 
-- `npm start` will run a development server with the component's demo app at [http://localhost:3000](http://localhost:3000) with hot module reloading.
+class App extends React.Component {
+    render () {
+        const tabContent = [
+            {
+                label: 'Tab 1',
+                content: '<p>Tab 1 content</p>'
+            },
+            {
+                label: 'Tab 2',
+                content: '<p>Tab 2 content</p>'
+            },
+            {
+                label: 'Tab 3',
+                content: '<p>Tab 3 content</p>'
+            }
+        ];
+        const initialSelectedIndex = 1;
 
-## Building
+        return (
+            <Tabs data={tabContent} initialSelectedIndex={initialSelectedIndex} />
+        );
+    }
+}
+```
 
-- `npm run build` will build the component for publishing to npm and also bundle the demo app.
+### Styling
 
-- `npm run clean` will delete built resources.
+The styling is up to you and uses BEM selectors:
+
+```scss
+.tabs {}
+
+    .tabs__tab-list {}
+        .tabs__tab-list-item {}
+            .tabs__trigger {
+                &.is-selected {}
+            }
+
+    .tabs__panels {}
+        .tabs__panel {
+            &.is-hidden {}
+        }
+```
+
+---
+
+Copyright (c) 2016 [Matt Stow](http://mattstow.com)  
+Licensed under the MIT license *(see [LICENSE](https://github.com/stowball/react-accessible-tabs/blob/master/LICENSE) for details)*
