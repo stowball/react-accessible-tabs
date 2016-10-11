@@ -11,14 +11,13 @@ class Panels extends Component {
         }
 
         return (
-            <div>
+            <div className="tabs__panels">
                 {data.map((panel, index) => {
                     const id = idSafeName(panel.label, index);
 
                     return (
                         <Panel
                             key={id}
-                            className="tabs__panels"
                             content={panel.content}
                             id={id}
                             index={index}
