@@ -24,7 +24,7 @@ class App extends React.Component {
         const tabContent = [
             {
                 label: 'Tab 1',
-                content: '<p>Tab 1 content</p>'
+                content: <CustomComponent text="Tab 1 content" />
             },
             {
                 label: 'Tab 2',

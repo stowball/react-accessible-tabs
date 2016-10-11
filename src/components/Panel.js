@@ -20,15 +20,18 @@ class Panel extends Component {
                 className={className}
                 id={id}
                 role="tabpanel"
-                tabIndex={isSelected ? 0 : -1}
-                dangerouslySetInnerHTML={this.createMarkup(content)}>
+                tabIndex={isSelected ? 0 : -1}>
+                {React.isValidElement(content) ? content : <div dangerouslySetInnerHTML={this.createMarkup(content)}></div>}
             </section>
         );
     }
 }
 
 Panel.propTypes = {
-    content: PropTypes.string,
+    content: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string
+    ]),
     id: PropTypes.string,
     index: PropTypes.number,
     selectedIndex: PropTypes.number

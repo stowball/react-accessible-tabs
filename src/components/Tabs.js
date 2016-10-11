@@ -72,7 +72,10 @@ Tabs.defaultProps = {
 Tabs.propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({
         label: PropTypes.string,
-        content: PropTypes.string
+        content: PropTypes.oneOfType([
+            PropTypes.element,
+            PropTypes.string
+        ])
     })),
     selectedIndex: PropTypes.number,
     initialSelectedIndex: PropTypes.number
