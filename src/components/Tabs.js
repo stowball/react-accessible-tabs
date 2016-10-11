@@ -70,7 +70,10 @@ Tabs.defaultProps = {
 };
 
 Tabs.propTypes = {
-    data: PropTypes.array,
+    data: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string,
+        content: PropTypes.string
+    })),
     selectedIndex: PropTypes.number,
     initialSelectedIndex: PropTypes.number
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Tabs from '../../src/components/Tabs';
+import Tabs from '../../src';
 
 var tabContent = [
     {

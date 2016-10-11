@@ -2,7 +2,7 @@
   "name": "react-accessible-tabs",
   "version": "0.1.0",
   "description": "Accessible React tabs component",
-  "main": "lib/components/Tab.js",
+  "main": "lib/index.js",
   "jsnext:main": "es/index.js",
   "module": "es/index.js",
   "files": [
@@ -14,7 +14,8 @@
   "scripts": {
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && npm clean-demo",
-    "start": "nwb serve-react-demo"
+    "start": "nwb serve-react-demo",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "classnames": "^2.2.5"
