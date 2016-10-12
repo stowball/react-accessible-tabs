@@ -2,6 +2,9 @@
 
 An accessible React tabs component, ported from [my vanilla JS plugin](http://codepen.io/stowball/pen/xVWwWe).
 
+[![npm version](https://badge.fury.io/js/react-accessible-tabs.svg)](https://badge.fury.io/js/react-accessible-tabs)
+[![Build Status](https://travis-ci.org/stowball/react-accessible-tabs.svg?branch=master)](https://travis-ci.org/stowball/react-accessible-tabs)
+
 ## Demo
 
 [See it in action](https://stowball.github.io/react-accessible-tabs/).
