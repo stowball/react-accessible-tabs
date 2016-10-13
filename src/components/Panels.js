@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import createFragment from 'react-addons-create-fragment';
 import Panel from './Panel';
 import idSafeName from '../helpers/idSafeName';
 
@@ -14,15 +15,19 @@ class Panels extends Component {
             <div className="tabs__panels">
                 {data.map((panel, index) => {
                     const id = idSafeName(panel.label, index);
+                    let o = {};
+
+                    o[id] = panel.content;
+                    const children = createFragment(o);
 
                     return (
                         <Panel
                             key={id}
-                            content={panel.content}
                             id={id}
                             index={index}
-                            selectedIndex={selectedIndex}
-                        />
+                            selectedIndex={selectedIndex}>
+                            {children}
+                        </Panel>
                     );
                 })}
             </div>

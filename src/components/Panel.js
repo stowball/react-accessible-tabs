@@ -6,8 +6,12 @@ class Panel extends Component {
         return { __html: str };
     }
 
+    renderContents (child) {
+        return React.isValidElement(child) ? child : <div dangerouslySetInnerHTML={this.createMarkup(child)}></div>;
+    }
+
     render () {
-        const { content, id, index, selectedIndex } = this.props;
+        const { children, id, index, selectedIndex } = this.props;
         const isSelected = index === selectedIndex;
         const className = classNames(
             'tabs__panel',
@@ -21,16 +25,20 @@ class Panel extends Component {
                 id={id}
                 role="tabpanel"
                 tabIndex={isSelected ? 0 : -1}>
-                {React.isValidElement(content) ? content : <div dangerouslySetInnerHTML={this.createMarkup(content)}></div>}
+                {React.Children.map(children, this.renderContents, this)}
             </section>
         );
     }
 }
 
 Panel.propTypes = {
-    content: PropTypes.oneOfType([
+    children: PropTypes.oneOfType([
         PropTypes.element,
-        PropTypes.string
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.oneOfType([
+            PropTypes.element,
+            PropTypes.string
+        ]))
     ]),
     id: PropTypes.string,
     index: PropTypes.number,

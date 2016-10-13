@@ -74,7 +74,11 @@ Tabs.propTypes = {
         label: PropTypes.string,
         content: PropTypes.oneOfType([
             PropTypes.element,
-            PropTypes.string
+            PropTypes.string,
+            PropTypes.arrayOf(PropTypes.oneOfType([
+                PropTypes.element,
+                PropTypes.string
+            ]))
         ])
     })),
     selectedIndex: PropTypes.number,

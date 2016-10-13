@@ -31,11 +31,19 @@ class App extends React.Component {
             },
             {
                 label: 'Tab 2',
-                content: '<p>Tab 2 content</p>'
+                content: <Parent><Child text="Tab 2 content" /></Parent>
             },
             {
                 label: 'Tab 3',
                 content: '<p>Tab 3 content</p>'
+            },
+            {
+                label: 'Tab 4',
+                content: [
+                  <Header />,
+                  '<p>Tab 4 content</p>'
+                  <Footer />
+                ]
             }
         ];
         const initialSelectedIndex = 1;
@@ -46,6 +54,9 @@ class App extends React.Component {
     }
 }
 ```
+
+* `data[x].label` accepts a `string`
+* `data[x].content` accepts React `element`s, a `string` or an `array` of `element`s and `string`s
 
 ### Styling
 
