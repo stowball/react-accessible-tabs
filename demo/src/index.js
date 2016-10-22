@@ -86,7 +86,7 @@ var css = `
     }
 `;
 
-const initialSelectedIndex = 0;
+const initialSelectedIndex = 1;
 
 class Demo extends React.Component {
     render () {

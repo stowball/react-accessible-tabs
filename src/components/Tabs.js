@@ -6,14 +6,14 @@ class Tabs extends Component {
     constructor (props) {
         super(props);
 
-        this.state = {
-            selectedIndex: this.props.initialSelectedIndex
-        };
-
         this.tabTriggersLength = this.props.data.length;
         this.keys = {
             prev: 37,
             next: 39
+        };
+
+        this.state = {
+            selectedIndex: this.props.initialSelectedIndex < 0 || this.props.initialSelectedIndex > this.tabTriggersLength - 1 ? 0 : this.props.initialSelectedIndex
         };
     }
 
@@ -51,6 +51,10 @@ class Tabs extends Component {
     }
 
     render () {
+        if (!this.tabTriggersLength) {
+            return null;
+        }
+
         return (
             <div className="tabs">
                 <TabList
@@ -66,6 +70,7 @@ class Tabs extends Component {
 }
 
 Tabs.defaultProps = {
+    data: [],
     initialSelectedIndex: 0
 };
 
