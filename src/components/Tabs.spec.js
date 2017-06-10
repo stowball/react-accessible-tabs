@@ -9,10 +9,6 @@ import TabList from './TabList';
 import Panels from './Panels';
 
 const noop = () => null;
-const keys = {
-    prev: 37,
-    next: 39
-};
 
 describe('<Tabs />', () => {
     it('renders nothing with no data', () => {
@@ -54,28 +50,28 @@ describe('<Tabs />', () => {
     it('when prev key pressed & index === 0, selectedIndex should === 0', () => {
         const wrapper = shallow(<Tabs data={data} initialSelectedIndex={0} />);
 
-        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, keyCode: keys.prev });
+        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, key: 'ArrowLeft' });
         expect(wrapper.state('selectedIndex')).toBe(0);
     });
 
     it('when prev key pressed & index === data.length - 1, selectedIndex should === data.length - 2', () => {
         const wrapper = shallow(<Tabs data={data} initialSelectedIndex={data.length - 1} />);
 
-        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, keyCode: keys.prev });
+        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, key: 'ArrowLeft' });
         expect(wrapper.state('selectedIndex')).toBe(data.length - 2);
     });
 
     it('when next key pressed & index === 0, selectedIndex should === 1', () => {
         const wrapper = shallow(<Tabs data={data} initialSelectedIndex={0} />);
 
-        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, keyCode: keys.next });
+        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, key: 'ArrowRight' });
         expect(wrapper.state('selectedIndex')).toBe(1);
     });
 
     it('when next key pressed & index === data.length - 1, selectedIndex should === data.length - 1', () => {
         const wrapper = shallow(<Tabs data={data} initialSelectedIndex={data.length - 1} />);
 
-        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, keyCode: keys.next });
+        wrapper.at(0).children().at(0).simulate('keyDown', { preventDefault: noop, key: 'ArrowRight' });
         expect(wrapper.state('selectedIndex')).toBe(data.length - 1);
     });
 });

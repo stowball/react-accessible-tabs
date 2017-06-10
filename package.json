@@ -24,6 +24,7 @@
     "react-addons-create-fragment": "^15.5.4"
   },
   "peerDependencies": {
+    "prop-types": "15.x",
     "react": "15.x"
   },
   "devDependencies": {

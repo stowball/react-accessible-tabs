@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import TabList from './TabList';
 import Panels from './Panels';
 
-const keys = {
-    prev: 37,
-    next: 39
-};
-
 class Tabs extends Component {
     constructor (props) {
         super(props);
@@ -34,7 +29,7 @@ class Tabs extends Component {
     }
 
     handleKeyDown = (e) => {
-        if (e.keyCode === keys.prev || e.keyCode === keys.next) {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
             e.preventDefault();
         }
         else {
@@ -43,10 +38,10 @@ class Tabs extends Component {
 
         let targetIndex;
 
-        if (e.keyCode === keys.prev && this.state.selectedIndex > 0) {
+        if (e.key === 'ArrowLeft' && this.state.selectedIndex > 0) {
             targetIndex = this.state.selectedIndex - 1;
         }
-        else if (e.keyCode === keys.next && this.state.selectedIndex < this.tabTriggersLength - 1) {
+        else if (e.key === 'ArrowRight' && this.state.selectedIndex < this.tabTriggersLength - 1) {
             targetIndex = this.state.selectedIndex + 1;
         }
         else {
