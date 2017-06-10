@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react-addons-create-fragment": "^15.3.2"
+    "react-addons-create-fragment": "^15.5.4"
   },
   "peerDependencies": {
     "react": "15.x"
@@ -31,13 +31,14 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
-    "enzyme": "^2.5.1",
+    "enzyme": "^2.8.2",
     "expect": "^1.20.2",
-    "mocha": "^3.1.2",
+    "mocha": "^3.4.2",
     "nwb": "0.12.x",
-    "react": "^15.3.2",
-    "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4"
   },
   "author": "Matt Stow",
   "homepage": "http://mattstow.com",
@@ -55,7 +56,11 @@
   "babel": {
     "env": {
       "test": {
-        "presets": ["es2015", "react", "stage-0"]
+        "presets": [
+          "es2015",
+          "react",
+          "stage-0"
+        ]
       }
     }
   }

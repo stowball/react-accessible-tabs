@@ -79,5 +79,5 @@ The styling is up to you and uses BEM selectors:
 
 ---
 
-Copyright (c) 2016 [Matt Stow](http://mattstow.com)  
+Copyright (c) 2017 [Matt Stow](http://mattstow.com)  
 Licensed under the MIT license *(see [LICENSE](https://github.com/stowball/react-accessible-tabs/blob/master/LICENSE) for details)*
