@@ -4,7 +4,7 @@ import idSafeName from '../helpers/idSafeName';
 
 class TabList extends Component {
     render () {
-        const { data, selectedIndex, onClick, onKeyDown } = this.props;
+        const { data, userInvokedSelection, selectedIndex, onClick, onKeyDown, resetUserInvokedSelection } = this.props;
 
         if (!data.length) {
             return null;
@@ -21,9 +21,11 @@ class TabList extends Component {
                             id={id}
                             index={index}
                             label={tab.label}
+                            userInvokedSelection={userInvokedSelection}
                             selectedIndex={selectedIndex}
                             onClick={onClick}
                             onKeyDown={onKeyDown}
+                            resetUserInvokedSelection={resetUserInvokedSelection}
                         />
                     );
                 })}

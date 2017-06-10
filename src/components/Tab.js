@@ -3,10 +3,13 @@ import classNames from 'classnames';
 
 class Tab extends Component {
     componentDidUpdate () {
-        const { id, index, selectedIndex } = this.props;
+        const { id, index, userInvokedSelection, selectedIndex, resetUserInvokedSelection } = this.props;
         const isSelected = index === selectedIndex;
 
-        isSelected && this.refs[id] && this.refs[id].focus();
+        if (userInvokedSelection && isSelected && this.refs[id]) {
+            this.refs[id].focus();
+            resetUserInvokedSelection();
+        }
     }
 
     render () {

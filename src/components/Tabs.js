@@ -2,33 +2,38 @@ import React, { Component, PropTypes } from 'react';
 import TabList from './TabList';
 import Panels from './Panels';
 
+const keys = {
+    prev: 37,
+    next: 39
+};
+
 class Tabs extends Component {
     constructor (props) {
         super(props);
 
         this.tabTriggersLength = this.props.data.length;
-        this.keys = {
-            prev: 37,
-            next: 39
-        };
 
         this.state = {
+            userInvokedSelection: false,
             selectedIndex: this.props.initialSelectedIndex < 0 || this.props.initialSelectedIndex > this.tabTriggersLength - 1 ? 0 : this.props.initialSelectedIndex
         };
     }
 
-    handleClick (e, index) {
+    handleClick = (e, index) => {
         e.preventDefault();
 
         if (this.state.selectedIndex === index) {
             return;
         }
 
-        this.setState({ selectedIndex: index });
+        this.setState({
+            userInvokedSelection: true,
+            selectedIndex: index
+        });
     }
 
-    handleKeyDown (e) {
-        if (e.keyCode === this.keys.prev || e.keyCode === this.keys.next) {
+    handleKeyDown = (e) => {
+        if (e.keyCode === keys.prev || e.keyCode === keys.next) {
             e.preventDefault();
         }
         else {
@@ -37,17 +42,26 @@ class Tabs extends Component {
 
         let targetIndex;
 
-        if (e.keyCode === this.keys.prev && this.state.selectedIndex > 0) {
+        if (e.keyCode === keys.prev && this.state.selectedIndex > 0) {
             targetIndex = this.state.selectedIndex - 1;
         }
-        else if (e.keyCode === this.keys.next && this.state.selectedIndex < this.tabTriggersLength - 1) {
+        else if (e.keyCode === keys.next && this.state.selectedIndex < this.tabTriggersLength - 1) {
             targetIndex = this.state.selectedIndex + 1;
         }
         else {
             return;
         }
 
-        this.setState({ selectedIndex: targetIndex });
+        this.setState({
+            userInvokedSelection: true,
+            selectedIndex: targetIndex
+        });
+    }
+
+    resetUserInvokedSelection = () => {
+        this.setState({
+            userInvokedSelection: false
+        });
     }
 
     render () {
@@ -59,9 +73,11 @@ class Tabs extends Component {
             <div className="tabs">
                 <TabList
                     {...this.props}
+                    userInvokedSelection={this.state.userInvokedSelection}
                     selectedIndex={this.state.selectedIndex}
-                    onClick={this.handleClick.bind(this)}
-                    onKeyDown={this.handleKeyDown.bind(this)}
+                    onClick={this.handleClick}
+                    onKeyDown={this.handleKeyDown}
+                    resetUserInvokedSelection={this.resetUserInvokedSelection}
                 />
                 <Panels {...this.props} selectedIndex={this.state.selectedIndex} />
             </div>
